@@ -87,3 +87,19 @@ See `sources/workflow-context-repos.md` for Pro Workflow and Context Mode consol
 3. Keep `caveman` opt-in per teammate/client.
 4. Use `token-tool-evaluation` before installing RTK, Context Mode, Token Savior, or code-search MCPs globally.
 5. If a skill slows a teammate down, patch the skill instead of telling people to work around it.
+
+Quickstart docs:
+
+```text
+TEAM_QUICKSTART.md
+COMPANY_ROLLOUT.md
+```
+
+Helper scripts:
+
+```bash
+scripts/install-core.sh
+scripts/apply-overlay.sh call-hermes /path/to/repo
+scripts/apply-overlay.sh roblox-game /path/to/repo
+scripts/verify-hub.sh
+```
