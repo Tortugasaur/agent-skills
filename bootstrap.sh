@@ -11,7 +11,7 @@ fi
 hermes skills tap add "$TAP" || true
 hermes skills update || true
 
-for skill in token-saver caveman codex-client-bootstrap tool-output-filtering; do
+for skill in token-saver caveman codex-client-bootstrap tool-output-filtering workflow-context-engineering; do
   echo "== $skill =="
   hermes skills search --source github "$skill" || true
   echo

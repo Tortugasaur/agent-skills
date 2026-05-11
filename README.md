@@ -10,6 +10,7 @@ Goal: every client shares same token-saving behavior, terse style, tool-output d
 - `caveman` — terse output style.
 - `codex-client-bootstrap` — setup checklist for new Codex/Hermes clients.
 - `tool-output-filtering` — patterns for noisy command/log reduction.
+- `workflow-context-engineering` — durable corrections, searchable project knowledge, compact handoffs, and safe plugin evaluation.
 
 ## Install in Hermes
 
@@ -20,6 +21,7 @@ hermes skills tap add <github-user-or-org>/agent-skills
 hermes skills search --source github token-saver
 hermes skills install <id>
 hermes skills install <id-for-caveman>
+hermes skills install <id-for-workflow-context-engineering>
 hermes skills update
 ```
 
@@ -42,3 +44,4 @@ cp AGENTS.md /path/to/project/AGENTS.md
 ## Sources
 
 See `sources/token-saver-repos.md` for upstream repo list from the X thread.
+See `sources/workflow-context-repos.md` for Pro Workflow and Context Mode consolidation notes.
