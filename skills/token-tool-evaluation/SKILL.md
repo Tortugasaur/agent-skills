@@ -148,7 +148,7 @@ Gate:
 
 For `claude-token-efficient` and `claude-token-optimizer`, prefer mining text into:
 
-- `AGENTS.md`
+- the shared project instruction file
 - `token-saver`
 - `repo-inspect`
 - `tool-output-filtering`
