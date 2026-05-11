@@ -2,7 +2,7 @@
 name: codex-client-bootstrap
 description: Use when setting up a new Codex-backed Hermes client or raw Codex CLI workspace so every client shares the same token-saving defaults, skill sources, project instruction behavior, auth checks, and verification flow.
 version: 1.0.0
-author: Luigi + Hermes Agent
+author: Hermes Agent
 license: MIT
 metadata:
   source:

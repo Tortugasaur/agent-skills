@@ -2,7 +2,7 @@
 name: caveman
 description: Use when the user wants ultra-compressed responses or when a client should default to low-token communication. Keeps technical accuracy while removing filler, hedging, and unnecessary prose.
 version: 1.0.0
-author: Luigi + Hermes Agent
+author: Hermes Agent
 license: MIT
 metadata:
   source:
@@ -28,7 +28,7 @@ This is output-token compression, not reasoning compression.
 - Coding-agent output is too verbose.
 - Final answer should be compact.
 
-Disable only if user asks for normal mode, long explanation, polished prose, legal/security warning, or customer-facing copy.
+Use only when terse internal style is desired. Disable for normal mode, long explanations, polished prose, legal/security warnings, customer-facing copy, onboarding docs, or any teammate who prefers standard prose.
 
 ## Rules
 

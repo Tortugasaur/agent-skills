@@ -2,7 +2,7 @@
 name: token-saver
 description: Use when reducing token cost and context bloat across Hermes, Codex, Claude Code, and other coding-agent clients. Enforces terse output, scoped file access, compact tool results, and explicit escalation before heavy crawls or external MCP stacks.
 version: 1.0.0
-author: Luigi + Hermes Agent
+author: Hermes Agent
 license: MIT
 metadata:
   source:
@@ -19,7 +19,7 @@ metadata:
 
 Use this skill to reduce context waste during coding-agent sessions without losing correctness. The core principle: only high-signal information enters the conversation. Raw logs, broad file dumps, generated assets, and repeated outputs stay outside context unless needed.
 
-This is the standard baseline for every Codex/Hermes client.
+This is the standard baseline for company Codex/Hermes clients. It should improve efficiency without blocking valid deep work.
 
 ## When to Use
 
@@ -35,11 +35,11 @@ Don't use this as excuse to skip verification. Save tokens by narrowing scope, n
 
 ## Response Rules
 
-1. Default terse.
-   - No filler.
-   - No restating obvious context.
-   - No long explanations unless user asks.
-   - Final answer: what changed, proof, next step.
+1. Default concise for internal work.
+   - Remove filler when it does not add clarity.
+   - Avoid restating obvious context.
+   - Give long explanations when the user asks, the task is complex, or the output is customer-facing/documentation.
+   - Final answer usually includes: what changed, proof, next step.
 
 2. Preserve exact technical terms.
    - Code, paths, commands, errors stay exact.
@@ -49,7 +49,7 @@ Don't use this as excuse to skip verification. Save tokens by narrowing scope, n
    - If missing info is retrievable, fetch it.
    - If not retrievable, state assumption in one line.
 
-4. Prefer bullets over prose.
+4. Prefer bullets for internal status; use normal prose for docs, customer copy, design rationale, or teammate requests.
 
 ## Tool-Use Rules
 
@@ -62,11 +62,11 @@ Use targeted reads first:
 3. Read narrow line ranges.
 4. Only then broaden.
 
-Avoid:
+Avoid by default:
 
-- reading entire large files
+- reading entire large files before narrowing scope
 - dumping vendor/build dirs
-- scanning `node_modules`, `.next`, `dist`, `build`, `coverage`, `.git`
+- scanning `node_modules`, `.next`, `dist`, `build`, `coverage`, `.git` unless required
 - broad OR-heavy regex when exact handle/path exists
 
 ### Command Output
@@ -109,7 +109,7 @@ Every client should have:
 
 1. A project instruction file with token discipline.
 2. `token-saver` skill or equivalent client instruction file.
-3. Terse response style (caveman/full if user prefers).
+3. Concise response style; `caveman` only when appropriate for that teammate/context.
 4. Tool-output filtering habit.
 5. Compact handoff format.
 

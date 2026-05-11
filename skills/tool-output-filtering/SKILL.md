@@ -2,7 +2,7 @@
 name: tool-output-filtering
 description: Use when keeping developer workflow summaries compact. Defines safe patterns for storing detailed command results separately and returning short actionable summaries.
 version: 1.0.0
-author: Luigi + Hermes Agent
+author: Hermes Agent
 license: MIT
 metadata:
   source:
