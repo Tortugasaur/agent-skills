@@ -35,6 +35,10 @@ Core install complete.
 Optional terse internal style:
   hermes skills install --yes $TAP/skills/caveman
 
+Source docs for coworker review:
+  sources/token-saver-repos.md
+  sources/workflow-context-repos.md
+
 Update later:
   hermes skills update
 EOF

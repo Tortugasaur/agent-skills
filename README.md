@@ -2,15 +2,15 @@
 
 Standard skill pack for company Hermes, Codex-backed Hermes, Claude Code, and raw Codex CLI clients.
 
-Goal: give every agent the same safe baseline without reducing anyone's ability to work on different products such as Call Hermes or Roblox game projects.
+Goal: give coworkers one transparent, shared set of skills derived from specific GitHub repos and X/Twitter research. This repo should improve efficiency without reducing anyone's ability to work deeply when needed.
 
 ## Design Principles
 
-1. **Baseline, not cage** — these skills reduce waste and improve handoffs. They do not override project-specific instructions, user requests, or safety requirements.
-2. **Preserve capability** — agents can still research, design, debug, write long explanations, inspect broad code areas, or use external tools when the task requires it.
-3. **Escalate deliberately** — start narrow and cheap; broaden only when needed; document why.
-4. **Separate core from experimental** — install instruction-level skills by default; audit external binaries/MCPs before team-wide rollout.
-5. **Project overlays win** — Call Hermes and Roblox work can add their own repos, commands, terminology, and QA gates on top of this shared base.
+1. **One shared set** — same core skills for all teams/projects.
+2. **Baseline, not cage** — skills reduce waste and improve handoffs; they do not override project-specific repo instructions or teammate requests.
+3. **Caveman optional** — terse style is useful, but not everyone wants it and it should not affect customer-facing/docs/design work unless chosen.
+4. **Source transparent** — coworkers can inspect exactly which upstream repos inspired each skill.
+5. **External tools are evaluated first** — binaries/MCPs/hooks are not standard defaults until audited.
 
 ## Core Skills
 
@@ -21,14 +21,11 @@ Install these for most agents:
 - `tool-output-filtering` — compact summaries for noisy developer output.
 - `repo-inspect` — narrow-first repository discovery with clear broadening rules.
 - `workflow-context-engineering` — durable corrections, searchable project knowledge, compact handoffs, and safe plugin evaluation.
+- `token-tool-evaluation` — audit/evaluate external token-saving binaries, MCPs, and prompt packs before standardizing.
 
 Optional style skill:
 
-- `caveman` — terse output style. Use only for internal/dev chats where terse style helps. Do not use for customer-facing copy, docs, legal/security warnings, or when a teammate asks for normal prose.
-
-Evaluation-only skill:
-
-- `token-tool-evaluation` — audit/evaluate external token-saving binaries, MCPs, and prompt packs before standardizing.
+- `caveman` — terse output style. Install only if a teammate/client wants that style.
 
 ## Install in Hermes
 
@@ -64,42 +61,43 @@ Raw Codex does not load Hermes skills. Copy or symlink `AGENTS.md` into repos wh
 cp AGENTS.md /path/to/project/AGENTS.md
 ```
 
-Then append project-specific notes below the shared baseline.
+Then append project-specific repo instructions below the shared baseline.
 
-## Project Overlays
+## Upstream Sources
 
-Use the shared baseline plus project-specific instructions:
+Main source docs:
 
-- `overlays/call-hermes.md` — Call Hermes / HVAC phone-agent work.
-- `overlays/roblox-game.md` — Roblox/Luau game-development work.
+- `sources/token-saver-repos.md` — X thread token-saving repo list, tiered adoption plan, snapshot metadata.
+- `sources/workflow-context-repos.md` — Pro Workflow and Context Mode consolidation notes.
 
-These overlays are intentionally small. They should add project context and QA gates, not duplicate the whole skill pack.
+Key upstream repos captured:
 
-## Sources
+| Upstream repo | How it maps into this pack |
+|---|---|
+| https://github.com/JuliusBrussee/caveman | Optional `caveman` style skill. |
+| https://github.com/drona23/claude-token-efficient | Mined into `AGENTS.md` and `token-saver`. |
+| https://github.com/rtk-ai/rtk | Pattern mined into `tool-output-filtering`; binary not globally installed. |
+| https://github.com/mksglu/context-mode | Pattern mined into `workflow-context-engineering`; plugin/MCP requires evaluation. |
+| https://github.com/rohitg00/pro-workflow | Pattern mined into `workflow-context-engineering`. |
+| https://github.com/Mibayy/token-savior | Evaluation backlog via `token-tool-evaluation`. |
+| https://github.com/zilliztech/claude-context | Evaluation backlog via `token-tool-evaluation`. |
+| https://github.com/tirth8205/code-review-graph | Evaluation backlog via `token-tool-evaluation`. |
+| https://github.com/ooples/token-optimizer-mcp | Evaluation backlog via `token-tool-evaluation`. |
+| https://github.com/nadimtuhin/claude-token-optimizer | Mined/evaluation backlog. |
+| https://github.com/alexgreensh/token-optimizer | Evaluation backlog. |
 
-See `sources/token-saver-repos.md` for upstream repo list from the X thread.
-See `sources/workflow-context-repos.md` for Pro Workflow and Context Mode consolidation notes.
+## Helper Scripts
+
+```bash
+scripts/install-core.sh       # install core skills
+scripts/verify-hub.sh         # verify skill hub search sees this repo
+bootstrap.sh                  # show/search skills from tap
+```
 
 ## Rollout Guidance
 
 1. Start with core skills only.
-2. Add project overlays per repo.
-3. Keep `caveman` opt-in per teammate/client.
+2. Keep `caveman` opt-in.
+3. Let each project repo add its own `AGENTS.md` details after the shared baseline.
 4. Use `token-tool-evaluation` before installing RTK, Context Mode, Token Savior, or code-search MCPs globally.
 5. If a skill slows a teammate down, patch the skill instead of telling people to work around it.
-
-Quickstart docs:
-
-```text
-TEAM_QUICKSTART.md
-COMPANY_ROLLOUT.md
-```
-
-Helper scripts:
-
-```bash
-scripts/install-core.sh
-scripts/apply-overlay.sh call-hermes /path/to/repo
-scripts/apply-overlay.sh roblox-game /path/to/repo
-scripts/verify-hub.sh
-```

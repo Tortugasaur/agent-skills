@@ -1,6 +1,6 @@
 # Team Quickstart
 
-Use this for onboarding teammates quickly.
+Use this for onboarding coworkers to the shared `agent-skills` pack.
 
 ## 1. Install Core Hermes Skills
 
@@ -28,23 +28,15 @@ Optional terse internal style:
 hermes skills install --yes Tortugasaur/agent-skills/skills/caveman
 ```
 
-## 2. Add Project Instructions
+## 2. Raw Codex CLI
 
-### Call Hermes repo
-
-```bash
-cd agent-skills
-scripts/apply-overlay.sh call-hermes /path/to/call-hermes-repo
-```
-
-### Roblox repo
+Raw Codex does not load Hermes skills. Copy the baseline instruction file into the project repo:
 
 ```bash
-cd agent-skills
-scripts/apply-overlay.sh roblox-game /path/to/roblox-repo
+cp AGENTS.md /path/to/project/AGENTS.md
 ```
 
-This creates or updates `AGENTS.md` in the target repo.
+Then append project-specific instructions below it.
 
 ## 3. Verify Skill Hub Access
 
@@ -52,14 +44,24 @@ This creates or updates `AGENTS.md` in the target repo.
 scripts/verify-hub.sh
 ```
 
-## 4. Teammate Defaults
+## 4. What Coworkers Are Adding
 
-Recommended default:
+Core skills add behavior, not external binaries:
 
-- core skills installed
-- project overlay applied in each repo
-- `caveman` only if teammate wants terse internal style
-- no external token MCPs/binaries globally until `token-tool-evaluation` passes
+- concise/default-efficient responses
+- narrow-first repo inspection
+- large-output summarization
+- durable handoffs/corrections
+- evaluation gate for external tools
+
+They do **not** globally install RTK, Context Mode, Token Savior, claude-context, or other MCP/binary tools. Those remain in the source/evaluation docs until reviewed.
+
+Source docs to inspect:
+
+```text
+sources/token-saver-repos.md
+sources/workflow-context-repos.md
+```
 
 ## 5. If Agent Feels Too Restrictive
 

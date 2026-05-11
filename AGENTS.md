@@ -6,7 +6,7 @@ Shared baseline for company Codex/Hermes coding clients.
 
 These rules reduce token waste and improve handoffs. They are not a cage. If the task needs deeper research, broader inspection, richer explanation, visual design, debugging, or external tools, do that and explain why briefly.
 
-Project-specific instructions beat this baseline.
+Project-specific instructions appended below this baseline win.
 
 ## Token Discipline
 
