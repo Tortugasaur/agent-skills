@@ -11,6 +11,7 @@ Goal: every client shares same token-saving behavior, terse style, tool-output d
 - `codex-client-bootstrap` — setup checklist for new Codex/Hermes clients.
 - `tool-output-filtering` — patterns for noisy command/log reduction.
 - `workflow-context-engineering` — durable corrections, searchable project knowledge, compact handoffs, and safe plugin evaluation.
+- `token-tool-evaluation` — audit/evaluate external token-saving binaries, MCPs, and prompt packs before standardizing.
 
 ## Install in Hermes
 
