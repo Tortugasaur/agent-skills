@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-TAP="${1:-<github-user-or-org>/luigi-agent-skills}"
+TAP="${1:-<github-user-or-org>/agent-skills}"
 
-if [[ "$TAP" == "<github-user-or-org>/luigi-agent-skills" ]]; then
-  echo "Usage: ./bootstrap.sh owner/luigi-agent-skills"
+if [[ "$TAP" == "<github-user-or-org>/agent-skills" ]]; then
+  echo "Usage: ./bootstrap.sh owner/agent-skills"
   exit 2
 fi
 

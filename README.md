@@ -1,4 +1,4 @@
-# Luigi Agent Skills
+# Agent Skills
 
 Standard skill pack for Hermes, Codex-backed Hermes, and raw Codex CLI clients.
 
@@ -16,7 +16,7 @@ Goal: every client shares same token-saving behavior, terse style, tool-output d
 After pushing this repo to GitHub:
 
 ```bash
-hermes skills tap add <github-user-or-org>/luigi-agent-skills
+hermes skills tap add <github-user-or-org>/agent-skills
 hermes skills search --source github token-saver
 hermes skills install <id>
 hermes skills install <id-for-caveman>

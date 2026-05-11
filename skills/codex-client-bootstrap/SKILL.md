@@ -46,7 +46,7 @@ hermes config set model.base_url https://chatgpt.com/backend-api/codex
 Add canonical skill tap once repo is on GitHub:
 
 ```bash
-hermes skills tap add <github-user-or-org>/luigi-agent-skills
+hermes skills tap add <github-user-or-org>/agent-skills
 hermes skills search --source github token-saver
 hermes skills install <id>
 hermes skills update
