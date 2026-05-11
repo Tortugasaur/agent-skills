@@ -1,6 +1,6 @@
 ---
 name: tool-output-filtering
-description: Use when commands, tests, logs, browsers, package managers, or MCP tools may emit large output. Stores raw output outside context and returns compact, actionable summaries with paths to full logs.
+description: Use when commands, tests, builds, browsers, package managers, or MCP tools may emit large output. Stores raw command output outside context and returns compact, actionable summaries with paths to full output files.
 version: 1.0.0
 author: Luigi + Hermes Agent
 license: MIT
@@ -24,12 +24,12 @@ Inspired by RTK-style output filtering, but works with plain shell too.
 ## When to Use
 
 - test suites
-- build logs
-- package install logs
-- dev server logs
-- browser console logs
+- build output
+- package-manager output
+- dev server output
+- browser console output
 - Playwright traces
-- Docker/Kubernetes logs
+- Docker/Kubernetes output
 - large grep/search results
 
 ## Shell Patterns
@@ -56,11 +56,11 @@ python -m pytest -q 2>&1 | tee "$log" | tail -120
 printf '\nFULL_LOG=%s\n' "$log"
 ```
 
-### Package installs
+### Package manager commands
 
 ```bash
-log="/tmp/install-$(date +%s).log"
-npm install 2>&1 | tee "$log" | tail -80
+log="/tmp/package-manager-$(date +%s).log"
+<package-manager-command> 2>&1 | tee "$log" | tail -80
 printf '\nFULL_LOG=%s\n' "$log"
 ```
 
@@ -103,11 +103,11 @@ Before standardizing RTK on all clients:
 1. `tail` hides first error. Use grep on saved full log.
 2. Progress bars spam context. Disable with CI flags where possible.
 3. Tool wrappers can hide exit codes. Always preserve/check `$?`.
-4. Do not delete logs before final answer if user may need proof.
+4. Do not delete output files before final answer if user may need proof.
 
 ## Verification Checklist
 
-- [ ] Raw output saved to file.
+- [ ] Raw command output saved to file.
 - [ ] Exit code captured.
 - [ ] Failures extracted compactly.
-- [ ] Full log path included.
+- [ ] Full output path included.

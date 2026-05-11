@@ -1,6 +1,6 @@
 ---
 name: codex-client-bootstrap
-description: Use when setting up a new Codex-backed Hermes client or raw Codex CLI workspace so every client shares the same token-saving defaults, skill sources, AGENTS.md behavior, auth checks, and verification flow.
+description: Use when setting up a new Codex-backed Hermes client or raw Codex CLI workspace so every client shares the same token-saving defaults, skill sources, project instruction behavior, auth checks, and verification flow.
 version: 1.0.0
 author: Luigi + Hermes Agent
 license: MIT
@@ -61,9 +61,9 @@ hermes config | sed -n '1,20p'
 
 ## Raw Codex CLI Setup
 
-Raw Codex does not load Hermes skills. Mirror essential rules into repo `AGENTS.md`.
+Raw Codex does not load Hermes skills. Mirror essential rules into the repo-level instruction file used by that client.
 
-Minimum `AGENTS.md` contents:
+Minimum instruction contents:
 
 ```md
 # Agent Rules
@@ -78,10 +78,10 @@ Minimum `AGENTS.md` contents:
 
 ## Per-Repo Bootstrap
 
-In each active project:
+In each active project, copy the shared instruction file into the client-specific instruction path:
 
 ```bash
-cp /path/to/luigi-agent-skills/AGENTS.md ./AGENTS.md
+cp /path/to/luigi-agent-skills/AGENTS.md ./<client-instruction-file>
 ```
 
 Or append project-specific notes below shared baseline.
@@ -91,5 +91,5 @@ Or append project-specific notes below shared baseline.
 - [ ] Hermes model/provider set.
 - [ ] Skill tap added.
 - [ ] `token-saver` installed or loadable.
-- [ ] Raw Codex repos have `AGENTS.md`.
+- [ ] Raw Codex repos have the shared project instruction file.
 - [ ] Test command proves client follows terse/token rules.

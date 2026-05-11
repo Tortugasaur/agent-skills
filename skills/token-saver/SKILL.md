@@ -107,8 +107,8 @@ Do not paste whole DOM snapshots unless needed. Prefer:
 
 Every client should have:
 
-1. `AGENTS.md` with token discipline.
-2. `token-saver` skill or equivalent instruction file.
+1. A project instruction file with token discipline.
+2. `token-saver` skill or equivalent client instruction file.
 3. Terse response style (caveman/full if user prefers).
 4. Tool-output filtering habit.
 5. Compact handoff format.
