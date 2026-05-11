@@ -80,9 +80,7 @@ Minimum instruction contents:
 
 In each active project, copy the shared instruction file into the client-specific instruction path:
 
-```bash
-cp /path/to/luigi-agent-skills/AGENTS.md ./<client-instruction-file>
-```
+Place the shared baseline text in the client-specific instruction path used by that project.
 
 Or append project-specific notes below shared baseline.
 

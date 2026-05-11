@@ -1,6 +1,6 @@
 ---
 name: tool-output-filtering
-description: Use when commands, tests, builds, browsers, package managers, or MCP tools may emit large output. Stores raw command output outside context and returns compact, actionable summaries with paths to full output files.
+description: Use when verbose developer commands may emit large output. Stores raw command output outside context and returns compact, actionable summaries with paths to full output files.
 version: 1.0.0
 author: Luigi + Hermes Agent
 license: MIT
